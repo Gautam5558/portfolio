@@ -75,14 +75,14 @@ const Hero = () => {
               Hi
             </motion.span>
           </motion.div>
-          <h1 className="text-center text-3xl font-bold tracking-wider text-gray-500">
+          <h1 className="text-center text-3xl font-bold tracking-wider text-gray-500 sm:text-2xl">
             I am Gautam Jain
           </h1>
           <p className="text-lg tracking-wider text-gray-700">
             Full Stack Developer & Software Engineer
           </p>
         </div>
-        <div className="mt-8 flex justify-center gap-x-8 text-3xl text-yellow-600">
+        <div className="mt-8 flex justify-center gap-x-8 text-3xl text-yellow-600 sm:text-2xl">
           {heroIcons.map((element, index) => {
             return (
               <a href="#" key={index}>
