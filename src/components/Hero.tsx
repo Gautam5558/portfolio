@@ -10,6 +10,7 @@ const Hero = () => {
     innerHeight: 0,
   });
   const [mouseMove, setMouseMove] = useState(false);
+  const [buttonHover, setButtonHover] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -61,9 +62,18 @@ const Hero = () => {
               priority={true}
               className="h-auto w-[150px]"
             />
-            <span className="absolute text-3xl font-semibold text-white">
-              Hi there
-            </span>
+            <motion.span
+              initial={{ scale: 0 }}
+              animate={{
+                opacity: buttonHover ? 0 : 1,
+                scale: buttonHover ? 2 : 0,
+                y: buttonHover ? -40 : 0,
+              }}
+              transition={{ opacity: { delay: 0.4 } }}
+              className="absolute text-3xl font-semibold text-white"
+            >
+              Hi
+            </motion.span>
           </motion.div>
           <h1 className="text-center text-3xl font-bold tracking-wider text-gray-500">
             I am Gautam Jain
@@ -92,6 +102,12 @@ const Hero = () => {
         <a
           href="#"
           className="mx-auto mt-7 block w-max rounded-lg bg-red-400 px-3 py-1 font-light capitalize tracking-wider text-white hover:bg-red-500 transition-colors"
+          onMouseEnter={() => {
+            setButtonHover(true);
+          }}
+          onMouseLeave={() => {
+            setButtonHover(false);
+          }}
         >
           Talk to me
         </a>
