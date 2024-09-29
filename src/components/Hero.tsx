@@ -1,12 +1,58 @@
+"use client";
 import { heroIcons } from "@/assets";
+import { useMotionValue, useTransform, motion, useSpring } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 const Hero = () => {
+  const [windowOffset, setWindowOffset] = useState({
+    innerWidth: 0,
+    innerHeight: 0,
+  });
+  const [mouseMove, setMouseMove] = useState(false);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { clientX, clientY } = e;
+    x.set(clientX);
+    y.set(clientY);
+
+    console.log(x, y);
+  };
+
+  const handleMouseEnter = () => {
+    setWindowOffset({
+      innerWidth: window.innerWidth,
+      innerHeight: window.innerHeight,
+    });
+    setMouseMove(true);
+  };
+
+  const { innerWidth, innerHeight } = windowOffset;
+
+  const xSpring = useSpring(x, { stiffness: 100, damping: 10 });
+  const ySpring = useSpring(y, { stiffness: 100, damping: 10 });
+
+  const rotateY = useTransform(xSpring, [0, innerWidth], [-30, 30]);
+  const rotateX = useTransform(ySpring, [0, innerHeight], [10, -50]);
+
   return (
-    <div className="h-screen grid place-items-center">
+    <div
+      className="h-screen grid place-items-center"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+    >
       <div>
         <div className="flex flex-col items-center justify-center gap-y-3 font-light capitalize">
-          <div className="flex items-center justify-center">
+          <motion.div
+            style={{
+              rotateX: mouseMove ? rotateX : 0,
+              rotateY: mouseMove ? rotateY : 0,
+              transition: "0.1s",
+            }}
+            className="flex items-center justify-center"
+          >
             <Image
               src={"/person.png"}
               alt="Person Image"
@@ -18,7 +64,7 @@ const Hero = () => {
             <span className="absolute text-3xl font-semibold text-white">
               Hi there
             </span>
-          </div>
+          </motion.div>
           <h1 className="text-center text-3xl font-bold tracking-wider text-gray-500">
             I am Gautam Jain
           </h1>
