@@ -20,22 +20,22 @@ import { RiAwardFill } from "react-icons/ri";
 export const aboutData = [
   {
     title: "Github Repos",
-    amount: 340,
+    amount: 15,
     icon: <FaGithub />,
   },
   {
     title: "Successful Projects",
-    amount: 25,
+    amount: 9,
     icon: <RiProjector2Line />,
   },
   {
     title: "Satisfied Clients",
-    amount: 5,
+    amount: 2,
     icon: <RiGroupLine />,
   },
   {
     title: "Awards and Recoganition",
-    amount: 5,
+    amount: 4,
     icon: <RiAwardFill />,
   },
 ];
