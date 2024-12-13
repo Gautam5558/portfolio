@@ -27,7 +27,10 @@ const Experience = () => {
         className="absolute -top-4 right-96 opacity-70 lg:hidden"
       />
 
-      <div className="w-full h-full flex flex-col items-center justify-center gap-y-10 lg:gap-y-20 py-10">
+      <div
+        ref={containerRef}
+        className="w-full h-full flex flex-col items-center justify-center gap-y-10 lg:gap-y-20 py-10"
+      >
         {experienceData.map((item, i) => {
           return (
             <div
