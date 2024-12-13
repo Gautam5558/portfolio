@@ -3,8 +3,18 @@
 import Image from "next/image";
 import Heading from "./reusable/Heading";
 import { arrowLeftIcon, experienceData } from "@/assets";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { useRef } from "react";
 
 const Experience = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 95%", "end end"],
+  });
+
+  const scrollY = useSpring(scrollYProgress, { stiffness: 200, damping: 20 });
+
   const date = new Date().getFullYear();
   return (
     <div className="relative py-20 px-96">
@@ -28,7 +38,13 @@ const Experience = () => {
                   : "left-[300px] xl:left-[240px] lg:left-0"
               }`}
             >
-              <div className=" relative flex flex-col gap-y-3 rounded-md border border-red-300 bg-white p-4 tracking-wide sm:text-sm">
+              <motion.div
+                initial={{ opacity: 0, x: i % 2 === 0 ? -80 : 80 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, type: "spring", stiffness: 50 }}
+                className="relative flex flex-col gap-y-3 rounded-md border border-red-300 bg-white p-4 tracking-wide sm:text-sm"
+              >
                 <h1 className="text-xl sm:text-lg font-light text-gray-700">
                   {item.title}
                 </h1>
@@ -57,7 +73,7 @@ const Experience = () => {
                 >
                   {arrowLeftIcon}
                 </span>
-              </div>
+              </motion.div>
               <div
                 className={`absolute top-20 w-14 z-10 bg-white border border-gray-300 rounded-full aspect-square grid place-items-center text-red-400 font-light -translate-y-1/2 ${
                   i % 2 === 0
@@ -70,7 +86,11 @@ const Experience = () => {
             </div>
           );
         })}
-        <div className="absolute w-1 h-full rounded-full bg-gray-300" />
+        <motion.div
+          initial={{ scaleY: 0 }}
+          style={{ scaleY: scrollY }}
+          className="absolute w-1 h-full rounded-full bg-gray-300 origin-top"
+        />
       </div>
     </div>
   );
