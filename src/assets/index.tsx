@@ -102,3 +102,87 @@ export const experienceData = [
     ],
   },
 ];
+
+// skills
+export const skillsData = [
+  {
+    name: "NextJs",
+    icon: "/skills/nextjs.png",
+  },
+  {
+    name: "ReactJS",
+    icon: "/skills/react.png",
+  },
+  {
+    name: "JavaScript",
+    icon: "/skills/js.png",
+  },
+  {
+    name: "TypeScript",
+    icon: "/skills/ts.png",
+  },
+  {
+    name: "NodeJS",
+    icon: "/skills/nodejs.png",
+  },
+  {
+    name: "ExpressJS",
+    icon: "/skills/expressjs.png",
+  },
+  {
+    name: "MongoDB",
+    icon: "/skills/mongodb.png",
+  },
+  {
+    name: "PostgreSql",
+    icon: "/skills/postgres.png",
+  },
+  {
+    name: "TailwindCSS",
+    icon: "/skills/tailwind.png",
+  },
+  {
+    name: "Scss",
+    icon: "/skills/scss.png",
+  },
+  {
+    name: "Docker",
+    icon: "/skills/docker.png",
+  },
+  {
+    name: "Redis",
+    icon: "/skills/redis.png",
+  },
+  {
+    name: "AWS EC2",
+    icon: "/skills/ec2.png",
+  },
+  {
+    name: "AWS S3",
+    icon: "/skills/s3.png",
+  },
+  {
+    name: "AWS cloudfront",
+    icon: "/skills/cloudfront.png",
+  },
+  {
+    name: "Vscode",
+    icon: "/skills/vscode.png",
+  },
+  {
+    name: "HTML",
+    icon: "/skills/html.png",
+  },
+  {
+    name: "CSS",
+    icon: "/skills/css.png",
+  },
+  {
+    name: "git",
+    icon: "/skills/git.png",
+  },
+  {
+    name: "Github",
+    icon: "/skills/github.png",
+  },
+];
