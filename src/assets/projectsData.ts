@@ -1,6 +1,6 @@
-import { projectShowcaseListType } from "@/types";
+import { projectShowcaseListItemType } from "@/types";
 
-export const projectShowcaseList: projectShowcaseListType[] = [
+export const projectShowcaseList: projectShowcaseListItemType[] = [
   {
     index: 0,
     title: "Dev Overflow",
