@@ -17,14 +17,14 @@ const Experience = () => {
 
   const date = new Date().getFullYear();
   return (
-    <div className="relative py-20 px-96">
+    <div className="relative py-20 px-56">
       <Heading text="Experience & Education" />
       <Image
         src={"/education.png"}
         alt="Experience Image"
         width={400}
         height={400}
-        className="absolute -top-4 right-96 opacity-70 lg:hidden"
+        className="absolute -top-4 right-56 opacity-70 lg:hidden"
       />
 
       <div
