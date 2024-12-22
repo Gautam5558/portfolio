@@ -54,7 +54,7 @@ export const projectData = [
     title: "Dev overflow",
     description:
       "A community platform asking and answering programming questions.Get help,share knowledge and collaborate with developers all around the world. Explore topics in web development ,data structures etc.",
-    favicon: "/projects/dev_overflow_favicon.png",
+    favicon: "/projects/dev-overflow-favicon.png",
     githubLink: "https://github.com/Gautam5558/dev_overflow",
     deploymentLink: "https://dev-overflow-iota-six.vercel.app/",
     images: [
@@ -68,7 +68,7 @@ export const projectData = [
     id: 2,
     title: "Taskify",
     description:
-      "Collaborate, manage projects and reach new productivity peaks",
+      " Taskify is a web app designed for efficient task management and collaboration within teams. It provides a user-friendly UI for organizing tasks into customizable boards, lists, and cards, allowing teams to effectively track their projects from start to finish.",
     favicon: "/projects/taskify-favicon.png",
     githubLink: "https://github.com/Gautam5558/taskify",
     deploymentLink: "https://taskify-coral-zeta.vercel.app/",
@@ -80,12 +80,18 @@ export const projectData = [
     ],
   },
   {
-    id: 1,
+    id: 3,
     title: "Homyz",
-    description: "",
+    description:
+      "A real estate application for both dealers and buyers to make bookings for visiting a property. It offers a seamless user experience with beautiful UI design, powered by various technologies and libraries such as JWT authentication, Tanstack Query for efficient data fetching etc.",
     favicon: "",
-    githubLink: "",
-    deploymentLink: "",
-    images: ["", ""],
+    githubLink: "https://github.com/Gautam5558/real_estate_app",
+    deploymentLink: "https://real-estate-app-client.vercel.app/",
+    images: [
+      "/projects/homyz.png",
+      "/projects/homyz-residencies.png",
+      "/projects/homyz-booking.png",
+      "/projects/homyz-search.png",
+    ],
   },
 ];
