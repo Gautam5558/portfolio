@@ -14,7 +14,7 @@ const Navbar = () => {
         {navbarData.map((element) => {
           return (
             <a
-              href="#"
+              href={"#" + element.id}
               key={element.id}
               className="group flex flex-col items-center gap-y-2"
             >

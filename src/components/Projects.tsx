@@ -5,7 +5,7 @@ import ProjectShowcase from "./reusable/ProjectShowcase";
 
 const Projects = () => {
   return (
-    <div>
+    <div id="projects">
       <ProjectShowcase projectsData={projectShowcaseList} />
     </div>
   );
