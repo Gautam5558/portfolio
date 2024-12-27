@@ -186,3 +186,39 @@ export const skillsData = [
     icon: "/skills/github.png",
   },
 ];
+
+// navbar
+
+import { RiHome5Line } from "react-icons/ri";
+import { RiUserLine } from "react-icons/ri";
+import { RiBriefcaseLine } from "react-icons/ri";
+import { GoProjectRoadmap } from "react-icons/go";
+import { LuMessageCircle } from "react-icons/lu";
+
+export const navbarData = [
+  {
+    id: "home",
+    name: "Home",
+    icon: <RiHome5Line />,
+  },
+  {
+    id: "about",
+    name: "About",
+    icon: <RiUserLine />,
+  },
+  {
+    id: "skills",
+    name: "Skills",
+    icon: <RiBriefcaseLine />,
+  },
+  {
+    id: "projects",
+    name: "Projects",
+    icon: <GoProjectRoadmap />,
+  },
+  {
+    id: "contact",
+    name: "Contact",
+    icon: <LuMessageCircle />,
+  },
+];
