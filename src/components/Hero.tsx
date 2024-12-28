@@ -43,6 +43,7 @@ const Hero = () => {
       className="h-screen grid place-items-center"
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
+      id="home"
     >
       <div>
         <div className="flex flex-col items-center justify-center gap-y-3 font-light capitalize">
