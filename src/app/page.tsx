@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
+import ToggleMode from "@/components/ToggleMode";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
@@ -36,15 +37,17 @@ export default function Home() {
 
   return (
     <>
-      <Navbar id={id} />
-      <div ref={wrapperRef}>
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Contact />
-      </div>
+      <ToggleMode>
+        <Navbar id={id} />
+        <div ref={wrapperRef}>
+          <Hero />
+          <About />
+          <Experience />
+          <Skills />
+          <Projects />
+          <Contact />
+        </div>
+      </ToggleMode>
     </>
   );
 }
