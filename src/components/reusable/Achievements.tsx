@@ -38,7 +38,9 @@ const Achievements = ({ item: { title, amount, icon } }: AchievementsProps) => {
         >
           {number}
         </motion.span>
-        <span className="text-sm tracking-wide text-gray-500">{title}</span>
+        <span className="text-sm tracking-wide text-gray-500 dark:text-white transition-colors">
+          {title}
+        </span>
       </h1>
     </div>
   );

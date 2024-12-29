@@ -50,7 +50,7 @@ export default function ProjectShowcaseList({
             {data.title}
           </span>
         </Link>
-        <p className="max-w-xl text-base font-semibold text-gray-500 min-sm:text-lg">
+        <p className="max-w-xl text-base font-semibold text-gray-500 dark:text-white/75 transition-colors min-sm:text-lg">
           {data.tags.map((tag) => {
             return `#${tag} `;
           })}

@@ -19,11 +19,11 @@ const About = () => {
           height={400}
           className="w-[300px] lg:w-[200px] md:hidden "
         />
-        <div className="relative max-x-[800px] rounded-xl bg-zinc-100 p-5 text-justify">
-          <span className="absolute top-20 -left-5 scale-[2.5] text-zinc-100 md:hidden">
+        <div className="relative max-x-[800px] rounded-xl bg-zinc-100 dark:bg-zinc-700 transition-colors p-5 text-justify">
+          <span className="absolute top-20 -left-5 scale-[2.5] text-zinc-100  md:hidden">
             {arrowLeftIcon}
           </span>
-          <p className="text-lg font-light text-gray-700 first-letter:pl-3 lg:text-[16px] sm:text-[14px]">
+          <p className="text-lg font-light text-gray-700 dark:text-white first-letter:pl-3 lg:text-[16px] sm:text-[14px]">
             {aboutText}
           </p>
           <a

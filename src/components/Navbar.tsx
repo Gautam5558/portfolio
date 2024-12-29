@@ -11,7 +11,7 @@ const Navbar = ({ id }: NavbarProps) => {
     <div className="w-[70] h-full fixed z-[9999] left-0 top-0 flex flex-col justify-between border-r border-gray-200 px-4 py-10">
       <a href="#">
         <span className="text-3xl font-semibold text-red-400">G</span>.
-        <span className="block w-min rotate-90 origin-bottom text-[12px] font-semibold">
+        <span className="block w-min rotate-90 origin-bottom text-[12px] font-semibold dark:text-white transition-colors">
           Jain
         </span>
       </a>
@@ -33,7 +33,7 @@ const Navbar = ({ id }: NavbarProps) => {
               </span>
               <span
                 className={classNames(
-                  "text-[10px] tracking-wide -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 text-center",
+                  "text-[10px] tracking-wide -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100  duration-300 text-center dark:text-white transition-colors",
                   id === element.id ? "opacity-100 translate-x-0" : ""
                 )}
               >

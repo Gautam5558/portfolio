@@ -52,7 +52,7 @@ export default function ProjectShowcase({
                 type: "spring",
                 stiffness: 100,
               }}
-              className="absolute right-0 top-0 -z-50"
+              className="absolute right-0 top-0 z-50"
             >
               <Image
                 src={images[currentImage]}
@@ -94,7 +94,7 @@ export default function ProjectShowcase({
                   {project.title}
                 </span>
               </div>
-              <p className="flex max-w-xl flex-wrap gap-2 text-base font-semibold text-gray-500 min-sm:text-lg">
+              <p className="flex max-w-xl flex-wrap gap-2 text-base font-semibold text-gray-500 dark:text-white/75 transition-colors min-sm:text-lg">
                 {project.tags.map((tag, index) => (
                   <span key={index}>#{tag}</span>
                 ))}
@@ -107,10 +107,12 @@ export default function ProjectShowcase({
           className="group/link relative flex max-w-max  gap-4 text-base font-semibold min-sm:text-lg min-md:text-[1.3rem]"
         >
           <div className="relative max-w-max flex items-center gap-2">
-            <span className="text-gray-700">See more projects </span>
+            <span className="text-gray-700 dark:text-white transition-colors">
+              See more projects{" "}
+            </span>
             <span>
               {" "}
-              <FaRegArrowAltCircleRight className="rotate-0 text-red-400 transition-transform duration-300 group-hover/link:-rotate-45 group-hover/link:scale-[1.2] group-hover/link:text-red-500" />
+              <FaRegArrowAltCircleRight className="rotate-0 text-red-400 transition-transform duration-300 group-hover/link:-rotate-45 group-hover/link:scale-[1.2] group-hover/link:text-red-500 " />
             </span>
           </div>
         </Link>
