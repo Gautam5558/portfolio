@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 import { RiMoonFoggyFill } from "react-icons/ri";
 import { RiSunFoggyFill } from "react-icons/ri";
 
@@ -7,16 +8,34 @@ interface ToggleModeProps {
 }
 
 const ToggleMode = ({ children }: ToggleModeProps) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  let value = localStorage.getItem("isDarkTheme");
+  if (value) {
+    value = JSON.parse(value);
+  }
+  const [isDarkTheme, setIsDarkTheme] = useState<null | boolean>(
+    value as boolean | null
+  );
   const mainRef = useRef<null | HTMLElement>(null);
+
+  useEffect(() => {
+    if (value) {
+      setIsDarkTheme(true);
+      mainRef.current?.classList.add("dark");
+    } else {
+      setIsDarkTheme(false);
+      mainRef.current?.classList.remove("dark");
+    }
+  }, []);
 
   const handleClick = () => {
     if (isDarkTheme) {
       setIsDarkTheme(false);
       mainRef.current?.classList.remove("dark");
+      localStorage.setItem("isDarkTheme", "false");
     } else {
       setIsDarkTheme(true);
       mainRef.current?.classList.add("dark");
+      localStorage.setItem("isDarkTheme", "true");
     }
   };
 
