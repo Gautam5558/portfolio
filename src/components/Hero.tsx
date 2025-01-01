@@ -46,7 +46,12 @@ const Hero = () => {
       id="home"
     >
       <div>
-        <div className="flex flex-col items-center justify-center gap-y-3 font-light capitalize">
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="flex flex-col items-center justify-center gap-y-3 font-light capitalize"
+        >
           <motion.div
             style={{
               rotateX: mouseMove ? rotateX : 0,
@@ -82,7 +87,7 @@ const Hero = () => {
           <p className="text-lg tracking-wider text-gray-700 dark:text-gray-200 transition-colors ">
             Full Stack Developer & Software Engineer
           </p>
-        </div>
+        </motion.div>
         <div className="mt-8 flex justify-center gap-x-8 text-3xl text-yellow-600 sm:text-2xl">
           {heroIcons.map((element, index) => {
             return (
@@ -100,7 +105,10 @@ const Hero = () => {
             );
           })}
         </div>
-        <a
+        <motion.a
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.7 }}
           href="#"
           className="mx-auto mt-7 block w-max rounded-lg bg-red-400 px-3 py-1 font-light capitalize tracking-wider text-white hover:bg-red-500 transition-colors"
           onMouseEnter={() => {
@@ -111,7 +119,7 @@ const Hero = () => {
           }}
         >
           Talk to me
-        </a>
+        </motion.a>
       </div>
     </div>
   );

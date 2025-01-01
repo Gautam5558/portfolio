@@ -44,7 +44,7 @@ const ToggleMode = ({ children }: ToggleModeProps) => {
       <div className="dark:bg-zinc-800">
         <div>
           <button
-            className="fixed z-[9999] right-14 sm:right-10 top-10 text-yellow-600 hover:text-yellow-500"
+            className="fixed z-[100] right-14 sm:right-10 top-10 text-yellow-600 hover:text-yellow-500"
             onClick={() => {
               handleClick();
             }}
