@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { RiMoonFoggyFill } from "react-icons/ri";
 import { RiSunFoggyFill } from "react-icons/ri";
+import { motion } from "framer-motion";
 
 interface ToggleModeProps {
   children: React.ReactNode;
@@ -50,13 +51,26 @@ const ToggleMode = ({ children }: ToggleModeProps) => {
             }}
           >
             {isDarkTheme === false ? (
-              <span className="absolute block rounded-full bg-zinc-50 dark:bg-zinc-800 transition-colors p-1 text-2xl">
+              <motion.span
+                key="moon"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                exit={{ scale: 0, opacity: 0 }}
+                className="absolute block rounded-full bg-zinc-50 dark:bg-zinc-800 transition-colors p-1 text-2xl"
+              >
                 <RiMoonFoggyFill />
-              </span>
+              </motion.span>
             ) : (
-              <span>
-                <RiSunFoggyFill className="absolute block rounded-full bg-zinc-50 dark:bg-zinc-800 transition-colors p-1 text-3xl" />
-              </span>
+              <motion.span
+                key="sun"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                exit={{ scale: 0, opacity: 0 }}
+              >
+                <RiSunFoggyFill className="absolute block rounded-full bg-zinc-50 dark:bg-zinc-800 transition-colors p-1 text-4xl" />
+              </motion.span>
             )}
           </button>
           {children}

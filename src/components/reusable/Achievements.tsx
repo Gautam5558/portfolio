@@ -31,13 +31,18 @@ const Achievements = ({ item: { title, amount, icon } }: AchievementsProps) => {
     <div className="flex items-end gap-x-3">
       <span className="text-4xl lg:text-2xl text-gray-300">{icon}</span>
       <h1 className="flex flex-col gap-y-2">
-        <motion.span
-          onViewportEnter={() => count(amount)}
-          viewport={{ once: true }}
-          className="text-2xl lg:text-xl font-light text-yellow-500"
-        >
-          {number}
-        </motion.span>
+        <div className="flex items-center gap-1">
+          <motion.span
+            onViewportEnter={() => count(amount)}
+            viewport={{ once: true }}
+            className="text-2xl lg:text-xl font-light text-yellow-500"
+          >
+            {number}
+          </motion.span>
+          <span className="text-2xl lg:text-xl font-light text-yellow-500">
+            +
+          </span>
+        </div>
         <span className="text-sm tracking-wide text-gray-500 dark:text-white transition-colors">
           {title}
         </span>

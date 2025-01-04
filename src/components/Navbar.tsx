@@ -1,6 +1,7 @@
 "use client";
 import { navbarData } from "@/assets";
 import { classNames } from "@/assets/utilityFunctions";
+import { motion } from "framer-motion";
 
 interface NavbarProps {
   id: number | string;
@@ -18,7 +19,10 @@ const Navbar = ({ id }: NavbarProps) => {
       <div className="flex flex-col gap-y-3 sm:gap-y-2">
         {navbarData.map((element) => {
           return (
-            <a
+            <motion.a
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
               href={"#" + element.id}
               key={element.id}
               className="group flex flex-col items-center gap-y-2"
@@ -39,7 +43,7 @@ const Navbar = ({ id }: NavbarProps) => {
               >
                 {element.name}
               </span>
-            </a>
+            </motion.a>
           );
         })}
       </div>
