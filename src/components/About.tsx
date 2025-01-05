@@ -8,10 +8,10 @@ const About = () => {
   return (
     <div
       id="about"
-      className="min-h-screen px-56 flex flex-col items-center justify-center sm:px-22 "
+      className="min-h-screen px-56 flex flex-col items-center justify-center sm:px-28"
     >
-      <Heading text="About Me" className={"w-fit text-center"} />
-      <div className="w-full flex items-center justify-between md:justify-center">
+      <Heading text="About Me" />
+      <div className="w-full flex items-center justify-between md:justify-center ">
         <Image
           src={"/about-me.png"}
           alt="About Image"
@@ -19,7 +19,7 @@ const About = () => {
           height={400}
           className="w-[300px] lg:w-[200px] md:hidden mid-tab:hidden small-tab:hidden"
         />
-        <div className="relative max-x-[800px] rounded-xl bg-zinc-100 dark:bg-zinc-700 transition-colors p-5 text-justify">
+        <div className="relative max-x-[800px] rounded-xl bg-zinc-100 dark:bg-zinc-700 transition-colors p-5 text-justify ">
           <span className="absolute top-20 -left-5 scale-[2.5] text-zinc-100  md:hidden">
             {arrowLeftIcon}
           </span>
@@ -36,7 +36,7 @@ const About = () => {
           </a>
         </div>
       </div>
-      <div className="mt-20 w-full flex flex-wrap items-center justify-between gap-x-7 gap-y-10 mid-tab:justify-center ">
+      <div className="mt-20 w-full flex flex-wrap items-center justify-between gap-x-7 gap-y-10 mid-tab:justify-center sm:justify-center ">
         {aboutData.map((item, index) => {
           return <Achievements key={index} item={item} />;
         })}

@@ -33,7 +33,7 @@ export default function ProjectShowcase({
   };
 
   return (
-    <section className="overflow-hidden py-32 px-56">
+    <section className="overflow-hidden py-32 px-56 sm:px-28">
       <div className="relative mx-auto max-w-7xl">
         <div className="relative right-0 top-0 hidden min-lg:block">
           <AnimatePresence>

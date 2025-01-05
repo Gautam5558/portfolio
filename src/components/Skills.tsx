@@ -25,7 +25,7 @@ const Skills = () => {
   return (
     <div
       id="skills"
-      className="min-h-screen flex flex-col items-center justify-center gap-y-20 px-56 sm:px-20"
+      className="min-h-screen flex flex-col items-center justify-center gap-y-20 px-56 sm:px-28 sm:mt-32 "
     >
       <Heading text="Skills" />
       <div className="w-full grid grid-cols-5 gap-x-6 gap-y-4 tablet-lg:grid-cols-4 mid-tab:grid-cols-3 md:grid-cols-2 small-tab:grid-cols-2 sm:grid-cols-1 big-phone:grid-cols-1  ">
