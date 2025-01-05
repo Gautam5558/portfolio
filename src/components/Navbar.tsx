@@ -9,7 +9,7 @@ interface NavbarProps {
 
 const Navbar = ({ id }: NavbarProps) => {
   return (
-    <div className="w-[70] h-full fixed z-[50] left-0 top-0 flex flex-col justify-between border-r border-gray-200 px-4 py-10">
+    <div className="w-[70] h-full fixed z-[100] left-0 top-0 flex flex-col justify-between border-r border-gray-200 px-4 py-10">
       <a href="#">
         <span className="text-3xl font-semibold text-red-400">G</span>.
         <span className="block w-min rotate-90 origin-bottom text-[12px] font-semibold dark:text-white transition-colors">

@@ -30,7 +30,7 @@ const Achievements = ({ item: { title, amount, icon } }: AchievementsProps) => {
   return (
     <div className="flex items-end gap-x-3">
       <span className="text-4xl lg:text-2xl text-gray-300">{icon}</span>
-      <h1 className="flex flex-col gap-y-2">
+      <h1 className="flex flex-col gap-y-2 items-center ">
         <div className="flex items-center gap-1">
           <motion.span
             onViewportEnter={() => count(amount)}

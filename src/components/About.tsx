@@ -8,22 +8,22 @@ const About = () => {
   return (
     <div
       id="about"
-      className="min-h-screen px-56 flex flex-col items-center justify-center"
+      className="min-h-screen px-56 flex flex-col items-center justify-center sm:px-22 "
     >
-      <Heading text="About Me" />
+      <Heading text="About Me" className={"w-fit text-center"} />
       <div className="w-full flex items-center justify-between md:justify-center">
         <Image
           src={"/about-me.png"}
           alt="About Image"
           width={400}
           height={400}
-          className="w-[300px] lg:w-[200px] md:hidden "
+          className="w-[300px] lg:w-[200px] md:hidden mid-tab:hidden small-tab:hidden"
         />
         <div className="relative max-x-[800px] rounded-xl bg-zinc-100 dark:bg-zinc-700 transition-colors p-5 text-justify">
           <span className="absolute top-20 -left-5 scale-[2.5] text-zinc-100  md:hidden">
             {arrowLeftIcon}
           </span>
-          <p className="text-lg font-light text-gray-700 dark:text-white first-letter:pl-3 lg:text-[16px] sm:text-[14px]">
+          <p className="text-lg font-light text-gray-700 dark:text-white first-letter:pl-3 lg:text-[14px] sm:text-[14px] mid-tab:text-[14px]">
             {aboutText}
           </p>
           <a
@@ -36,7 +36,7 @@ const About = () => {
           </a>
         </div>
       </div>
-      <div className="mt-20 w-full flex flex-wrap items-center justify-between gap-x-7 gap-y-10">
+      <div className="mt-20 w-full flex flex-wrap items-center justify-between gap-x-7 gap-y-10 mid-tab:justify-center ">
         {aboutData.map((item, index) => {
           return <Achievements key={index} item={item} />;
         })}

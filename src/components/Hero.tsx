@@ -85,7 +85,7 @@ const Hero = () => {
             I am Gautam Jain
           </h1>
           <p className="text-lg tracking-wider text-gray-700 dark:text-gray-200 transition-colors ">
-            Full Stack Developer & Software Engineer
+            Full Stack Developer
           </p>
         </motion.div>
         <div className="mt-8 flex justify-center gap-x-8 text-3xl text-yellow-600 sm:text-2xl">

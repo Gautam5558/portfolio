@@ -84,7 +84,7 @@ export const projectData = [
     title: "Homyz",
     description:
       "A real estate application for both dealers and buyers to make bookings for visiting a property. It offers a seamless user experience with beautiful UI design, powered by various technologies and libraries such as JWT authentication, Tanstack Query for efficient data fetching etc.",
-    favicon: "",
+    favicon: "/projects/homyz-favicon.png",
     githubLink: "https://github.com/Gautam5558/real_estate_app",
     deploymentLink: "https://real-estate-app-client.vercel.app/",
     images: [
