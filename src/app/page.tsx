@@ -40,7 +40,7 @@ export default function Home() {
         observer.observe(component);
       });
     }
-  }, []);
+  }, [isMounted]);
 
   if (!isMounted) {
     return null;
