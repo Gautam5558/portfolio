@@ -11,29 +11,40 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [id, setId] = useState<number | string>(0);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const wrapperRef = useRef<null | HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const intersecting = entry.isIntersecting;
-          if (intersecting) {
-            setId(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+    if (isMounted) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const intersecting = entry.isIntersecting;
+            if (intersecting) {
+              setId(entry.target.id);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
 
-    const componentsArray = Array.from(
-      wrapperRef.current?.children as HTMLCollectionOf<HTMLElement>
-    );
-    componentsArray.forEach((component) => {
-      observer.observe(component);
-    });
+      const componentsArray = Array.from(
+        wrapperRef.current?.children as HTMLCollectionOf<HTMLElement>
+      );
+      componentsArray.forEach((component) => {
+        observer.observe(component);
+      });
+    }
   }, []);
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <>
