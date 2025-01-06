@@ -49,7 +49,7 @@ const Navbar = ({ id }: NavbarProps) => {
       </div>
       <p className="flex items-center justify-centertext-[13px] text-gray-500 mt-6">
         <span className="absolute left-1/2 w-max flex items-center -rotate-90 origin-bottom-left tracking-wider">
-          C 2024-2025
+          &copy; 2024-2025
         </span>
       </p>
     </div>

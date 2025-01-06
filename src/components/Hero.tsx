@@ -91,11 +91,11 @@ const Hero = () => {
         <div className="mt-8 flex justify-center gap-x-8 text-3xl text-yellow-600 sm:text-2xl">
           {heroIcons.map((element, index) => {
             return (
-              <a href="#" key={index}>
+              <a href={element.href} key={index} target="_blank">
                 <div className="relative p-2 flex justify-center items-center h-8 w-8 border-yellow-600 border-[1px] rounded-full overflow-hidden group">
                   {/* The icon itself */}
                   <span className="relative text-[16px] z-10 transition-colors duration-300 group-hover:text-white">
-                    {element}
+                    {element.icon}
                   </span>
 
                   {/* The hover fill effect */}
@@ -109,7 +109,7 @@ const Hero = () => {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.7 }}
-          href="#"
+          href="#contact"
           className="mx-auto mt-7 block w-max rounded-lg bg-red-400 px-3 py-1 font-light capitalize tracking-wider text-white hover:bg-red-500 transition-colors"
           onMouseEnter={() => {
             setButtonHover(true);

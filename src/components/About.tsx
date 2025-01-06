@@ -27,7 +27,7 @@ const About = () => {
             {aboutText}
           </p>
           <a
-            href="/nick-cv.pdf"
+            href="/gautam-resume.pdf"
             download=""
             className="w-max flex items-center gap-x-2 mt-6 rounded-full border-gray-300 border bg-red-400 px-3 py-2 text-white font-light hover:bg-red-500 transition-colors "
           >
