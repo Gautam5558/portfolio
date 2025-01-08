@@ -3,8 +3,46 @@
 import Image from "next/image";
 import Heading from "./reusable/Heading";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    content: "",
+  });
+
+  const handleChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => {
+      return {
+        ...prev,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("/api/mail", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div id="contact" className="min-h-screen py-10 px-56 sm:px-28">
       <Heading text="Get in touch" />
@@ -24,6 +62,9 @@ const Contact = () => {
           />
         </motion.div>
         <motion.form
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}
           initial={{ x: 150, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.4 }}
@@ -32,22 +73,42 @@ const Contact = () => {
         >
           <div className="w-full flex lg:flex-col gap-x-3 lg:gap-y-3">
             <input
+              onChange={(e) => {
+                handleChange(e);
+              }}
+              name="name"
+              value={formData.name}
               type="text"
               placeholder="Your Name"
               className="w-full border border-yellow-500 rounded-md bg-zinc-100 px-4 py-2 text-sm tracking-wider text-gray-500 outine-none"
             />
             <input
+              onChange={(e) => {
+                handleChange(e);
+              }}
+              name="email"
+              value={formData.email}
               type="email"
               placeholder="Your Email"
               className="w-full border border-yellow-500 rounded-md bg-zinc-100 px-4 py-2 text-sm tracking-wider text-gray-500 outine-none"
             />
           </div>
           <input
+            onChange={(e) => {
+              handleChange(e);
+            }}
+            name="subject"
+            value={formData.subject}
             placeholder="Subject"
             type="text"
             className="w-full border border-yellow-500 rounded-md bg-zinc-100 px-4 py-2 text-sm tracking-wider text-gray-500 outine-none"
           />
           <textarea
+            onChange={(e) => {
+              handleChange(e);
+            }}
+            name="content"
+            value={formData.content}
             placeholder="Write me..."
             className="max-h-[250px] min-h-[150px] border border-yellow-500 rounded-md bg-zinc-100 px-4 py-2 text-sm tracking-wider text-gray-500 outine-none"
           />
