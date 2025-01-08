@@ -5,9 +5,12 @@ export async function POST(request: Request) {
   const data = await request.json();
   const validateFeilds = contactFormSchema.safeParse(data);
   if (!validateFeilds.success) {
-    return Response.json("Invalid Credentails", {
-      status: 404,
-    });
+    return Response.json(
+      { message: "Invalid Credentails", ok: false },
+      {
+        status: 404,
+      }
+    );
   }
   const { name, email, subject, content } = validateFeilds.data;
   const transporter = nodemailer.createTransport({
@@ -30,11 +33,17 @@ export async function POST(request: Request) {
 
   try {
     await transporter.sendMail(mailData);
-    return Response.json("Email sent successfully", { status: 200 });
+    return Response.json(
+      { message: "Email sent successfully", ok: true },
+      { status: 200 }
+    );
   } catch (err) {
     console.log(err);
-    return Response.json("There was some error while sending email", {
-      status: 404,
-    });
+    return Response.json(
+      { message: "There was some error while sending email", ok: false },
+      {
+        status: 404,
+      }
+    );
   }
 }

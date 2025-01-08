@@ -13,3 +13,8 @@ export const contactFormSchema = z.object({
     .string()
     .min(2, { message: "Message length must be more than 2 characters" }),
 });
+
+export const contactFormResponse = z.object({
+  message: z.string(),
+  ok: z.boolean(),
+});

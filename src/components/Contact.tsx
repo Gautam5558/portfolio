@@ -4,6 +4,7 @@ import Image from "next/image";
 import Heading from "./reusable/Heading";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { contactFormResponse } from "@/schemas";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,8 @@ const Contact = () => {
     subject: "",
     content: "",
   });
+
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e:
@@ -29,6 +32,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      setLoading(true);
       const res = await fetch("/api/mail", {
         method: "POST",
         body: JSON.stringify(formData),
@@ -36,8 +40,20 @@ const Contact = () => {
           "Content-Type": "application/json",
         },
       });
-      const data = await res.json();
-      console.log(data);
+      const data: unknown = await res.json();
+      setLoading(false);
+      const validateFeilds = contactFormResponse.safeParse(data);
+      if (!validateFeilds.success) {
+        return console.log("There was some error");
+      }
+
+      const { message, ok } = validateFeilds.data;
+
+      if (!ok) {
+        return console.log("SOmething went wrong");
+      }
+
+      console.log(message);
     } catch (err) {
       console.log(err);
     }
@@ -73,6 +89,7 @@ const Contact = () => {
         >
           <div className="w-full flex lg:flex-col gap-x-3 lg:gap-y-3">
             <input
+              disabled={loading}
               onChange={(e) => {
                 handleChange(e);
               }}
@@ -80,9 +97,10 @@ const Contact = () => {
               value={formData.name}
               type="text"
               placeholder="Your Name"
-              className="w-full border border-yellow-500 rounded-md bg-zinc-100 px-4 py-2 text-sm tracking-wider text-gray-500 outine-none"
+              className="w-full border border-yellow-500 rounded-md bg-zinc-100 px-4 py-2 text-sm tracking-wider text-gray-500 outine-none disabled:cursor-not-allowed disabled:opacity-50"
             />
             <input
+              disabled={loading}
               onChange={(e) => {
                 handleChange(e);
               }}
@@ -90,10 +108,11 @@ const Contact = () => {
               value={formData.email}
               type="email"
               placeholder="Your Email"
-              className="w-full border border-yellow-500 rounded-md bg-zinc-100 px-4 py-2 text-sm tracking-wider text-gray-500 outine-none"
+              className="w-full border border-yellow-500 rounded-md bg-zinc-100 px-4 py-2 text-sm tracking-wider text-gray-500 outine-none disabled:cursor-not-allowed disabled:opacity-50"
             />
           </div>
           <input
+            disabled={loading}
             onChange={(e) => {
               handleChange(e);
             }}
@@ -101,18 +120,22 @@ const Contact = () => {
             value={formData.subject}
             placeholder="Subject"
             type="text"
-            className="w-full border border-yellow-500 rounded-md bg-zinc-100 px-4 py-2 text-sm tracking-wider text-gray-500 outine-none"
+            className="w-full border border-yellow-500 rounded-md bg-zinc-100 px-4 py-2 text-sm tracking-wider text-gray-500 outine-none disabled:cursor-not-allowed disabled:opacity-50"
           />
           <textarea
+            disabled={loading}
             onChange={(e) => {
               handleChange(e);
             }}
             name="content"
             value={formData.content}
             placeholder="Write me..."
-            className="max-h-[250px] min-h-[150px] border border-yellow-500 rounded-md bg-zinc-100 px-4 py-2 text-sm tracking-wider text-gray-500 outine-none"
+            className="max-h-[250px] min-h-[150px] border border-yellow-500 rounded-md bg-zinc-100 px-4 py-2 text-sm tracking-wider text-gray-500 outine-none disabled:cursor-not-allowed disabled:opacity-50"
           />
-          <button className="w-full border border-yellow-500 rounded-md bg-yellow-600 px-4 py-2 text-sm font-light tracking-wider text-white outine-none hover:bg-yellow-500 transition-colors cursor-pointer">
+          <button
+            disabled={loading}
+            className="w-full border border-yellow-500 rounded-md bg-yellow-600 px-4 py-2 text-sm font-light tracking-wider text-white outine-none hover:bg-yellow-500 transition-colors cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
+          >
             Send Message
           </button>
         </motion.form>
