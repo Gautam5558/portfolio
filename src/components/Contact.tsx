@@ -4,7 +4,8 @@ import Image from "next/image";
 import Heading from "./reusable/Heading";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { contactFormResponse } from "@/schemas";
+import { contactFormResponse, contactFormSchema } from "@/schemas";
+import { toast } from "sonner";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +15,8 @@ const Contact = () => {
     content: "",
   });
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<null | string>(null);
 
   const handleChange = (
     e:
@@ -31,31 +33,45 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const validation = contactFormSchema.safeParse(formData);
+    if (!validation.success) {
+      toast.error("Invalid form field inputs");
+      return setError("Invalid Inputs");
+    }
     try {
       setLoading(true);
       const res = await fetch("/api/mail", {
         method: "POST",
-        body: JSON.stringify(formData),
+        body: JSON.stringify(validation.data),
         headers: {
           "Content-Type": "application/json",
         },
       });
       const data: unknown = await res.json();
       setLoading(false);
+      setError(null);
       const validateFeilds = contactFormResponse.safeParse(data);
       if (!validateFeilds.success) {
-        return console.log("There was some error");
+        return toast.error("Something went wrong");
       }
 
       const { message, ok } = validateFeilds.data;
 
       if (!ok) {
-        return console.log("SOmething went wrong");
+        return toast.error(message);
       }
-
-      console.log(message);
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        content: "",
+      });
+      toast.success(message);
     } catch (err) {
+      setLoading(false);
+      setError(null);
       console.log(err);
+      toast.error("Something went wrong");
     }
   };
 
@@ -138,6 +154,11 @@ const Contact = () => {
           >
             Send Message
           </button>
+          {error && (
+            <span className="text-red-500 text-[14px] text-center">
+              {error}
+            </span>
+          )}
         </motion.form>
       </div>
     </div>

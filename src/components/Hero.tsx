@@ -18,8 +18,6 @@ const Hero = () => {
     const { clientX, clientY } = e;
     x.set(clientX);
     y.set(clientY);
-
-    console.log(x, y);
   };
 
   const handleMouseEnter = () => {
